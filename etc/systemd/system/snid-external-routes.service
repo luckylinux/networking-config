@@ -1,0 +1,12 @@
+[Unit]
+Description=SNID External Servers Routes Setup Service
+
+[Service]
+#Type=oneshot
+User=root
+ExecStart=/etc/snid/routes-external.sh "start"
+ExecStop=/etc/snid/routes-external.sh "stop"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
