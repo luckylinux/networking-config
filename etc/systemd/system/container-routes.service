@@ -4,8 +4,8 @@ Description=Container Routes Setup Service
 [Service]
 #Type=oneshot
 User=root
-ExecStart=/etc/network-setup/routes-local.sh "start"
-ExecStop=/etc/network-setup/routes-local.sh "stop"
+ExecStart=/etc/containers-networking/routes-local.sh "start"
+ExecStop=/etc/containers-networking/routes-local.sh "stop"
 RemainAfterExit=yes
 
 [Install]
