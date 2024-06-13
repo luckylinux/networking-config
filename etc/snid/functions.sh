@@ -11,30 +11,38 @@ setup_snid_route() {
 
     if [[ "${action}" == "start" ]]
     then
-        # Echo
-        echo "Adding/Replacing Route for <${lroute}> via <${lgw}>"
-
-        # Add/Replace Route
         if [[ "${ltype}" == "external" ]]
         then
+            # Echo
+            echo "Adding/Replacing Route for <${lroute}> via <${lgw}>"
+
+            # Add/Replace Route
             ip route replace ${lroute} via ${lgw}
         elif [[ "${ltype}" == "local" ]]
         then
+            # Echo
+            echo "Adding/Replacing Route for <${lroute}> dev <lo>"
+
+            # Add/Replace Route
             ip route replace local ${lroute} dev lo
         else
             echo "[ERROR]: Invalid Route Type <${ltype}>"
         fi
     elif [[ "${action}" == "stop" ]]
     then
-        # Echo
-        echo "Removing Route for <${lroute}> via <${lgw}>"
-
-        # Delete Route
         if [[ "${ltype}" == "external" ]]
         then
+            # Echo
+            echo "Removing Route for <${lroute}> via <${lgw}>"
+
+            # Delete Route
             ip route del ${lroute} via ${lgw}
         elif [[ "${ltype}" == "local" ]]
         then
+            # Echo
+            echo "Adding/Replacing Route for <${lroute}> dev <lo>"
+
+            # Delete Route
             ip route del local ${lroute} dev lo
         else
             echo "[ERROR]: Invalid Route Type <${ltype}>"
