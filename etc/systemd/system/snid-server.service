@@ -1,0 +1,12 @@
+[Unit]
+Description=SNID Server Service
+Requires=snid-local-routes.service snid-external-routes.service
+
+[Service]
+User=snid
+Group=snid
+ExecStart=/etc/snid/servers-local.sh "start"
+ExecStop=/etc/snid/servers-local.sh "stop"
+
+[Install]
+WantedBy=multi-user.target

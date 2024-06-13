@@ -1,0 +1,12 @@
+[Unit]
+Description=Container Routes Setup Service
+
+[Service]
+#Type=oneshot
+User=root
+ExecStart=/etc/network-setup/routes-local.sh "start"
+ExecStop=/etc/network-setup/routes-local.sh "stop"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
