@@ -3,7 +3,7 @@
 # The action (start/stop) is in the global variable $action
 
 # Setup Route
-setup_snid_route() {
+setup_route() {
     # Arguments
     local ltype="$1"
     local lroute="$2"
@@ -56,11 +56,11 @@ setup_snid_route() {
 
 
 # Setup External Route
-setup_snid_external_route() {
-    setup_snid_route "external" ${*}
+setup_external_route() {
+    setup_route "external" ${*}
 }
 
 # Setup Local Route
-setup_snid_local_route() {
-    setup_snid_route "local" ${*}
+setup_local_route() {
+    setup_route "local" ${*}
 }
