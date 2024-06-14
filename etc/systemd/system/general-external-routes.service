@@ -1,0 +1,12 @@
+[Unit]
+Description=General External Routes Setup Service
+
+[Service]
+#Type=oneshot
+User=root
+ExecStart=/etc/networking-general/routes-external.sh "start"
+ExecStop=/etc/networking-general/routes-external.sh "stop"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

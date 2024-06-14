@@ -12,15 +12,29 @@ fi
 
 # Create Directory Structure for general
 mkdir -p /etc/networking-general
+mkdir -p /etc/networking-general/routes.external.d
+mkdir -p /etc/networking-general/routes.local.d
 
 # Copy Scripts
 cp ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
+
+# Copy Systemd Services
+cp ${toolpath}/etc/systemd/system/general-*.service /etc/systemd/system/
 
 # Chown
 chown -R root:root /etc/networking-general/
 
 # Ensure Executable Permission
 chmod +x /etc/networking-general/*.sh
+
+# Reload Systemd Daemon
+systemctl daemon-reload
+
+# Enable Systemd Services
+systemctl enable general-*
+
+# Restart Systemd Services
+systemctl restart general-*
 
 if [[ "${SETUP_SNID_NETWORKING}" == "yes" ]]
 then
@@ -52,6 +66,15 @@ then
     # Copy Systemd Services
     cp ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
 
+    # Reload Systemd Daemon
+    systemctl daemon-reload
+
+    # Enable Systemd Services
+    systemctl enable snid-*
+
+    # Restart Systemd Services
+    systemctl restart snid-*
+
     # Chown
     chown -R root:root /etc/networking-snid/
 
@@ -82,7 +105,7 @@ then
 
     # Create Directory Structor for containers
     mkdir -p /etc/networking-containers
-    mkdir -p /etc/networking-containers/addresses.local.d
+    mkdir -p /etc/networking-containers/routes.local.d
 
     # Remove Renamed Systemd File
     rm -f /etc/systemd/system/container-routes.service
@@ -92,6 +115,15 @@ then
 
     # Copy Systemd Services
     cp ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
+
+    # Reload Systemd Daemon
+    systemctl daemon-reload
+
+    # Enable Systemd Services
+    systemctl enable containers-*
+
+    # Restart Systemd Services
+    systemctl restart containers-*
 
     # Chown
     chown -R root:root /etc/networking-containers/
