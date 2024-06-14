@@ -45,23 +45,23 @@ Look at the Examples in `etc/snid/routes.local.d/example.sh` and `etc/snid/serve
 ## Enable Routes Services
 Enable Systemd Services:
 ```
-systemctl enable --now snid-local-routes.service snid-server.service
+systemctl enable --now snid-local-routes.service
 ```
 
 Check that no Errors Occurred:
 ```
-systemctl status snid-local-routes.service snid-server.service
+systemctl status snid-local-routes.service
 ```
 
 ## Enable Servers Services
 Enable Systemd Services:
 ```
-systemctl enable --now snid-server.service snid-server.service
+systemctl enable --now snid-server.service
 ```
 
 Check that no Errors Occurred:
 ```
-systemctl status snid-server.service snid-server.service
+systemctl status snid-server.service
 ```
 
 
