@@ -1,5 +1,12 @@
-# podman-network-setup
-podman-network-setup
+# networking-config
+networking-config
+
+# Introduction
+Note that this is only **one** possible approach.
+
+You can probably achieve the same through Ansible, Salt/Saltstack or any other Automation/Configuration Management System.
+
+The approach used here is something that allows both Centralized Configuration Management and Manual/Local Configuration and Overrides, in case e.g. where your Configuration Management System is not working reliably.
 
 # Setup
 Clone Repository:
