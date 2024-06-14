@@ -16,9 +16,9 @@ then
 fi
 
 # Remove Previous Scripts that have been converted to Symlink
-if [[ -f "/etc/snid/functions.sh" ]]
+if [[ -f "/etc/networking-snid/functions.sh" ]]
 then
-   rm -f "/etc/snid/functions.sh"
+   rm -f "/etc/networking-snid/functions.sh"
 fi
 
 if [[ -f "/etc/networking-containers/functions.sh" ]]
