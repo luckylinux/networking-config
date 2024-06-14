@@ -32,7 +32,7 @@ systemctl daemon-reload
 systemctl daemon-reexec
 
 # Find matching Services
-mapfile -t files < <( find "/etc/systemd/system/" -iname "general-*.service" | grep $(basename) )
+mapfile -t files < <( find "/etc/systemd/system/" -iname "general-*.service" )
 
 for file in "${files[@]}"
 do
@@ -78,7 +78,7 @@ then
     systemctl daemon-reexec
 
     # Find matching Services
-    mapfile -t files < <( find "/etc/systemd/system/" -iname "snid-*.service" | grep $(basename) )
+    mapfile -t files < <( find "/etc/systemd/system/" -iname "snid-*.service" )
 
     for file in "${files[@]}"
     do
@@ -135,7 +135,7 @@ then
     systemctl daemon-reexec
 
     # Find matching Services
-    mapfile -t files < <( find "/etc/systemd/system/" -iname "containers-*.service" | grep $(basename) )
+    mapfile -t files < <( find "/etc/systemd/system/" -iname "containers-*.service" )
 
     for file in "${files[@]}"
     do
