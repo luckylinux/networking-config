@@ -12,3 +12,7 @@ do
    # Process File
    source $file
 done
+
+# Return Exit Code 0 by Default
+exit 0
+
