@@ -23,7 +23,7 @@ Run Setup:
 # SNID External Server
 SNID Routes to External Servers are configured in `/etc/snid/routes.external.d/<server>.sh`.
 
-Look at the Examples in `etc/snid/routes.external.d/example1.sh` and `etc/snid/routes.external.d/example2.sh` for more Information.
+Look at the Examples in `etc/networking-snid/routes.external.d/example1.sh` and `etc/networking-snid/routes.external.d/example2.sh` for more Information.
 
 Enable Systemd Service:
 ```
@@ -37,10 +37,10 @@ systemctl status snid-external-routes.service
 
 # Local SNID Server
 SNID Server and Routes to Local Servers (running on the same Host as Podman Host) are configured in:
-- Routes: `/etc/snid/routes.local.d/<server>.sh`
-- Server: `/etc/snid/servers.local.d/<server>.sh`
+- Routes: `/etc/networking-snid/routes.local.d/<server>.sh`
+- Server: `/etc/networking-snid/servers.local.d/<server>.sh`
 
-Look at the Examples in `etc/snid/routes.local.d/example.sh` and `etc/snid/servers.local.d/example.sh` for more Information.
+Look at the Examples in `etc/networking-snid/routes.local.d/example.sh` and `etc/networking-snid/servers.local.d/example.sh` for more Information.
 
 ## Enable Routes Services
 Enable Systemd Services:
