@@ -28,14 +28,20 @@ chown -R root:root /etc/networking-general/
 chmod +x /etc/networking-general/*.sh
 
 # Reload Systemd Daemon
-systemctl daemon-reexec
 systemctl daemon-reload
+systemctl daemon-reexec
 
-# Enable Systemd Services
-systemctl enable "general-*.service"
+# Find matching Services
+mapfile -t files < <( find "/etc/systemd/system/" -iname "general-*.service" | grep $(basename) )
 
-# Restart Systemd Services
-systemctl restart "general-*.service"
+for file in "${files[@]}"
+do
+    # Enable Systemd Services
+    systemctl enable $(basename "${file}")
+
+    # Restart Systemd Services
+    systemctl restart $(basename "${file}")
+done
 
 if [[ "${SETUP_SNID_NETWORKING}" == "yes" ]]
 then
@@ -68,14 +74,20 @@ then
     cp ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
 
     # Reload Systemd Daemon
-    systemctl daemon-reexec
     systemctl daemon-reload
+    systemctl daemon-reexec
 
-    # Enable Systemd Services
-    systemctl enable "snid-*"
+    # Find matching Services
+    mapfile -t files < <( find "/etc/systemd/system/" -iname "snid-*.service" | grep $(basename) )
 
-    # Restart Systemd Services
-    systemctl restart "snid-*"
+    for file in "${files[@]}"
+    do
+        # Enable Systemd Services
+        systemctl enable $(basename "${file}")
+
+        # Restart Systemd Services
+        systemctl restart $(basename "${file}")
+    done
 
     # Chown
     chown -R root:root /etc/networking-snid/
@@ -119,14 +131,20 @@ then
     cp ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
 
     # Reload Systemd Daemon
-    systemctl daemon-reexec
     systemctl daemon-reload
+    systemctl daemon-reexec
 
-    # Enable Systemd Services
-    systemctl enable "containers-*"
+    # Find matching Services
+    mapfile -t files < <( find "/etc/systemd/system/" -iname "containers-*.service" | grep $(basename) )
 
-    # Restart Systemd Services
-    systemctl restart "containers-*"
+    for file in "${files[@]}"
+    do
+        # Enable Systemd Services
+        systemctl enable $(basename "${file}")
+
+        # Restart Systemd Services
+        systemctl restart $(basename "${file}")
+    done
 
     # Chown
     chown -R root:root /etc/networking-containers/
