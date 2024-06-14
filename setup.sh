@@ -47,12 +47,13 @@ mkdir -p /etc/networking-containers
 mkdir -p /etc/networking-containers/addresses.local.d
 
 # Copy Scripts
-cp ${toolpath}/etc/networking-snid/*.sh /etc/networking-snid/
-cp ${toolpath}/etc/networking-containers/*.sh /etc/networking-containers/
-cp ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
+# Preserve Permissions and chmod Settings
+cp -ax ${toolpath}/etc/networking-snid/*.sh /etc/networking-snid/
+cp -ax ${toolpath}/etc/networking-containers/*.sh /etc/networking-containers/
+cp -ax ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
 
 # Copy Systemd Services
-cp ${toolpath}/etc/systemd/system/*.service /etc/systemd/system/
+cp -ax ${toolpath}/etc/systemd/system/*.service /etc/systemd/system/
 
 # Reload Systemd Daemon
 systemctl daemon-reload
