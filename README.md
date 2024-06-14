@@ -8,6 +8,8 @@ You can probably achieve the same through Ansible, Salt/Saltstack or any other A
 
 The approach used here is something that allows both Centralized Configuration Management and Manual/Local Configuration and Overrides, in case e.g. where your Configuration Management System is not working reliably.
 
+You can also choose different Approaches (e.g. 1 Systemd Service per each Route or Address) etc.
+
 # Setup
 Clone Repository:
 ```

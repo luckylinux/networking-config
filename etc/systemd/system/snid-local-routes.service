@@ -4,8 +4,8 @@ Description=SNID Local Routes Setup Service
 [Service]
 #Type=oneshot
 User=root
-ExecStart=/etc/snid/routes-local.sh "start"
-ExecStop=/etc/snid/routes-local.sh "stop"
+ExecStart=/etc/networking-snid/routes-local.sh "start"
+ExecStop=/etc/networking-snid/routes-local.sh "stop"
 RemainAfterExit=yes
 
 [Install]

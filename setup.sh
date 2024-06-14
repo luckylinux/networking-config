@@ -4,6 +4,17 @@
 relativepath="./" # Define relative path to go from this script to the root level of the tool
 if [[ ! -v toolpath ]]; then scriptpath=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ); toolpath=$(realpath --canonicalize-missing ${scriptpath}/${relativepath}); fi
 
+# Rename Folders if they exists Already
+if [[ -d "/etc/snid" ]]
+then
+   mv /etc/snid /etc/networking-snid
+fi
+
+if [[ -d "/etc/containers-networking" ]]
+then
+   mv /etc/containers-networking /etc/networking-containers
+fi
+
 # Create Directory Structures
 mkdir -p /etc/snid
 mkdir -p /etc/snid/routes.external.d

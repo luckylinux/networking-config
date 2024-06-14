@@ -4,7 +4,7 @@
 action=${1-"start"}
 
 # Process each File
-for file in /etc/containers-networking/addresses.local.d/*.sh
+for file in /etc/networking-snid/routes.local.d/*.sh
 do
    # Process File
    source $file
