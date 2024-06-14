@@ -16,6 +16,12 @@ Clone Repository:
 git clone https://github.com/luckylinux/podman-network-setup.git
 ```
 
+Configure:
+```
+cp config.sh.example config.sh
+nano config.sh
+```
+
 Run Setup:
 ```
 ./setup.sh
