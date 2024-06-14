@@ -15,6 +15,17 @@ then
    mv /etc/containers-networking /etc/networking-containers
 fi
 
+# Remove Previous Scripts that have been converted to Symlink
+if [[ -f "/etc/snid/functions.sh" ]]
+then
+   rm -f "/etc/snid/functions.sh"
+fi
+
+if [[ -f "/etc/networking-containers/functions.sh" ]]
+then
+   rm -f "/etc/networking-containers/functions.sh"
+fi
+
 # Create Directory Structure for general
 mkdir -p /etc/networking-general
 
