@@ -28,13 +28,14 @@ chown -R root:root /etc/networking-general/
 chmod +x /etc/networking-general/*.sh
 
 # Reload Systemd Daemon
+systemctl daemon-reexec
 systemctl daemon-reload
 
 # Enable Systemd Services
-systemctl enable general-*
+systemctl enable "general-*.service"
 
 # Restart Systemd Services
-systemctl restart general-*
+systemctl restart "general-*.service"
 
 if [[ "${SETUP_SNID_NETWORKING}" == "yes" ]]
 then
@@ -67,13 +68,14 @@ then
     cp ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
 
     # Reload Systemd Daemon
+    systemctl daemon-reexec
     systemctl daemon-reload
 
     # Enable Systemd Services
-    systemctl enable snid-*
+    systemctl enable "snid-*"
 
     # Restart Systemd Services
-    systemctl restart snid-*
+    systemctl restart "snid-*"
 
     # Chown
     chown -R root:root /etc/networking-snid/
@@ -117,13 +119,14 @@ then
     cp ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
 
     # Reload Systemd Daemon
+    systemctl daemon-reexec
     systemctl daemon-reload
 
     # Enable Systemd Services
-    systemctl enable containers-*
+    systemctl enable "containers-*"
 
     # Restart Systemd Services
-    systemctl restart containers-*
+    systemctl restart "containers-*"
 
     # Chown
     chown -R root:root /etc/networking-containers/
