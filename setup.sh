@@ -26,6 +26,13 @@ then
    rm -f "/etc/networking-containers/functions.sh"
 fi
 
+# Create Symlinks for functions.sh
+cd /etc/networking-snid || exit
+ln -s ../networking-general/functions.sh functions.sh
+
+cd /etc/networking-containers || exit
+ln -s ../networking-general/functions.sh functions.sh
+
 # Create Directory Structure for general
 mkdir -p /etc/networking-general
 
