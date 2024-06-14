@@ -14,8 +14,13 @@ fi
 mkdir -p /etc/networking-general
 
 # Copy Scripts
-# Preserve Permissions and chmod Settings
-cp -ax ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
+cp ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
+
+# Chown
+chown -R root:root /etc/networking-general/
+
+# Ensure Executable Permission
+chmod +x /etc/networking-general/*.sh
 
 if [[ "${SETUP_SNID_NETWORKING}" == "yes" ]]
 then
@@ -42,11 +47,16 @@ then
     ln -s ../networking-general/functions.sh functions.sh
 
     # Copy Scripts
-    # Preserve Permissions and chmod Settings
-    cp -ax ${toolpath}/etc/networking-snid/*.sh /etc/networking-snid/
+    cp ${toolpath}/etc/networking-snid/*.sh /etc/networking-snid/
 
     # Copy Systemd Services
-    cp -ax ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
+    cp ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
+
+    # Chown
+    chown -R root:root /etc/networking-snid/
+
+    # Ensure Executable Permission
+    chmod +x /etc/networking-snid/*.sh
 fi
 
 if [[ "${SETUP_CONTAINERS_NETWORKING}" == "yes" ]]
@@ -78,11 +88,16 @@ then
     rm -f /etc/systemd/system/container-routes.service
 
     # Copy Scripts
-    # Preserve Permissions and chmod Settings
-    cp -ax ${toolpath}/etc/networking-containers/*.sh /etc/networking-containers/
+    cp ${toolpath}/etc/networking-containers/*.sh /etc/networking-containers/
 
     # Copy Systemd Services
-    cp -ax ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
+    cp ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
+
+    # Chown
+    chown -R root:root /etc/networking-containers/
+
+    # Ensure Executable Permission
+    chmod +x /etc/networking-containers/*.sh
 fi
 
 # Reload Systemd Daemon
