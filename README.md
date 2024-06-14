@@ -42,6 +42,7 @@ SNID Server and Routes to Local Servers (running on the same Host as Podman Host
 
 Look at the Examples in `etc/snid/routes.local.d/example.sh` and `etc/snid/servers.local.d/example.sh` for more Information.
 
+## Enable Routes Services
 Enable Systemd Services:
 ```
 systemctl enable --now snid-local-routes.service snid-server.service
@@ -50,6 +51,17 @@ systemctl enable --now snid-local-routes.service snid-server.service
 Check that no Errors Occurred:
 ```
 systemctl status snid-local-routes.service snid-server.service
+```
+
+## Enable Servers Services
+Enable Systemd Services:
+```
+systemctl enable --now snid-server.service snid-server.service
+```
+
+Check that no Errors Occurred:
+```
+systemctl status snid-server.service snid-server.service
 ```
 
 
