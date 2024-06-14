@@ -15,18 +15,23 @@ then
    mv /etc/containers-networking /etc/networking-containers
 fi
 
-# Create Directory Structures
-mkdir -p /etc/snid
-mkdir -p /etc/snid/routes.external.d
-mkdir -p /etc/snid/routes.local.d
-mkdir -p /etc/snid/servers.local.d
+# Create Directory Structure for general
+mkdir -p /etc/networking-general
 
-mkdir -p /etc/containers-networking
-mkdir -p /etc/containers-networking/addresses.local.d
+# Create Directory Structure for snid
+mkdir -p /etc/networking-snid
+mkdir -p /etc/networking-snid/routes.external.d
+mkdir -p /etc/networking-snid/routes.local.d
+mkdir -p /etc/networking-snid/servers.local.d
+
+# Create Directory Structor for containers
+mkdir -p /etc/networking-containers
+mkdir -p /etc/networking-containers/addresses.local.d
 
 # Copy Scripts
-cp ${toolpath}/etc/snid/*.sh /etc/snid/
-cp ${toolpath}/etc/containers-networking/*.sh /etc/containers-networking/
+cp ${toolpath}/etc/networking-snid/*.sh /etc/networking-snid/
+cp ${toolpath}/etc/networking-containers/*.sh /etc/networking-containers/
+cp ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
 
 # Copy Systemd Services
 cp ${toolpath}/etc/systemd/system/*.service /etc/systemd/system/
