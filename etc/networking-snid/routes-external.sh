@@ -3,8 +3,11 @@
 # Action
 action=${1-"start"}
 
+# Get list of Configuration Scripts
+mapfile -t files < <( find "/etc/networking-snid/routes.external.d/" -iname "*.sh" )
+
 # Process each File
-for file in /etc/networking-snid/routes.external.d/*.sh
+for file in "${files[@]}"
 do
    # Process File
    source $file
