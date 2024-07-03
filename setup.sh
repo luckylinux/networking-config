@@ -19,7 +19,7 @@ mkdir -p /etc/networking-general/routes.local.d
 cp ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
 
 # Copy Systemd Services
-cp ${toolpath}/etc/systemd/system/general-*.service /etc/systemd/system/
+cp -Z ${toolpath}/etc/systemd/system/general-*.service /etc/systemd/system/
 
 # Chown
 chown -R root:root /etc/networking-general/
@@ -71,7 +71,7 @@ then
     cp ${toolpath}/etc/networking-snid/*.sh /etc/networking-snid/
 
     # Copy Systemd Services
-    cp ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
+    cp -Z ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
 
     # Reload Systemd Daemon
     systemctl daemon-reload
@@ -128,7 +128,7 @@ then
     cp ${toolpath}/etc/networking-containers/*.sh /etc/networking-containers/
 
     # Copy Systemd Services
-    cp ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
+    cp -Z ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
 
     # Reload Systemd Daemon
     systemctl daemon-reload
