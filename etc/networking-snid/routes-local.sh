@@ -3,6 +3,9 @@
 # Action
 action=${1-"start"}
 
+# Load Functions
+source /etc/networking-snid/functions.sh
+
 # Wait a bit until System is properly booted up
 delay_script_startup "SNID Local Routes Service"
 
