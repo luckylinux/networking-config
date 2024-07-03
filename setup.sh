@@ -10,6 +10,17 @@ then
     source "${toolpath}/config.sh"
 fi
 
+# Set/Restore Correct SELinux Context
+set_correct_selinux_context() {
+    local lfilename="$1"
+
+    # Check if SELinux & SELinux Management Tools are Installed
+    if [[ -n $(command -v restorecon) ]]
+    then
+         restorecon -v ${lfilename}
+    fi
+}
+
 # Create Directory Structure for general
 mkdir -p /etc/networking-general
 mkdir -p /etc/networking-general/routes.external.d
@@ -17,9 +28,11 @@ mkdir -p /etc/networking-general/routes.local.d
 
 # Copy Scripts
 cp ${toolpath}/etc/networking-general/*.sh /etc/networking-general/
+set_correct_selinux_context /etc/networking-general/*.sh
 
 # Copy Systemd Services
 cp -Z ${toolpath}/etc/systemd/system/general-*.service /etc/systemd/system/
+set_correct_selinux_context /etc/systemd/system/general-*.service
 
 # Chown
 chown -R root:root /etc/networking-general/
@@ -69,9 +82,11 @@ then
 
     # Copy Scripts
     cp ${toolpath}/etc/networking-snid/*.sh /etc/networking-snid/
+    set_correct_selinux_context /etc/networking-snid/*.sh
 
     # Copy Systemd Services
     cp -Z ${toolpath}/etc/systemd/system/snid-*.service /etc/systemd/system/
+    set_correct_selinux_context /etc/systemd/system/snid-*.service
 
     # Reload Systemd Daemon
     systemctl daemon-reload
@@ -126,9 +141,11 @@ then
 
     # Copy Scripts
     cp ${toolpath}/etc/networking-containers/*.sh /etc/networking-containers/
+    set_correct_selinux_context /etc/networking-containers/*.sh
 
     # Copy Systemd Services
     cp -Z ${toolpath}/etc/systemd/system/containers-*.service /etc/systemd/system/
+    set_correct_selinux_context /etc/systemd/system/containers-*.service
 
     # Reload Systemd Daemon
     systemctl daemon-reload
