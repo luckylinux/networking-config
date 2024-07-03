@@ -1,6 +1,7 @@
 [Unit]
 Description=SNID Server Service
 Requires=snid-local-routes.service snid-external-routes.service
+After=snid-local-routes.service snid-external-routes.service
 
 [Service]
 User=snid

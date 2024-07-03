@@ -1,9 +1,7 @@
 #!/bin/bash
 
-#!/bin/bash
-
 # Wait a bit until System is properly booted up
-sleep 15
+sleep 30
 
 # Configuration
 IPV4_ADDRESS="192.168.8.25"

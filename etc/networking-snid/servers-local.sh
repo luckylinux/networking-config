@@ -3,6 +3,9 @@
 # Action
 action=${1-"start"}
 
+# Wait a bit until System is properly booted up
+delay_script_startup "SNID Local Servers Service"
+
 # Get list of Configuration Scripts
 mapfile -t files < <( find "/etc/networking-snid/servers.local.d/" -iname "*.sh" )
 
