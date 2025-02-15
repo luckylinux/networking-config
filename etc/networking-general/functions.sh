@@ -56,7 +56,7 @@ setup_route_general() {
     # Check if Route failed to be added
     if [ ${lexitcode} -ne 0 ]
     then
-        echo "[WARNING]: {ldescription} Route failed with the following Message: ${loutputmessage}"
+        echo "[WARNING]: ${ldescription} Route failed with the following Message: ${loutputmessage}"
 
         if [[ "${loutputmessage}" == "RTNETLINK answers: No route to host" ]]
         then
