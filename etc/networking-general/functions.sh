@@ -65,7 +65,7 @@ setup_route_general() {
                 # Manually Configure Host as a Nexthop
 
                 # Find which Gateway the Host uses
-                lrouteinfo=$(ip route get "${lgateway}" | head -1)
+                lrouteinfo=$(ip route get "${lgw}" | head -1)
 
                 # Find which Device we need to configure the Host as a Nexthop for
                 local lroutedevice=$(echo "${lrouteinfo}" | sed -E "s|^.*?dev\s([0-9a-zA-Z]*?)\s*.*$|\1|g")
