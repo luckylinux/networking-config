@@ -2,6 +2,7 @@
 Description=SNID External Servers Routes Setup Service
 Wants=network-online.target
 After=network.target network-online.target
+Upholds=general-external-routes.service
 
 [Service]
 #Type=oneshot
